@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdlpopdklchi0"]
+
+[ext_resource type="Texture2D" uid="uid://qqdsr3vflkdm" path="res://assets/foliage/trashmaster.png" id="1_3m2p2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1d0jf"]
+size = Vector2(143.028, 56.9955)
+
+[node name="Node2D" type="StaticBody2D" groups=["obstacle"]]
+position = Vector2(707.001, 1424)
+scale = Vector2(3.89435, 4.63194)
+metadata/_edit_group_ = true
+
+[node name="Trashmaster" type="Sprite2D" parent="."]
+texture = ExtResource("1_3m2p2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.4198, -2.42874)
+shape = SubResource("RectangleShape2D_1d0jf")

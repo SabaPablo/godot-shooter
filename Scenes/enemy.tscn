@@ -1,0 +1,118 @@
+[gd_scene load_steps=26 format=3 uid="uid://dw0kpixwxhfxy"]
+
+[ext_resource type="Script" path="res://Scenes/enemy.gd" id="1_os5ih"]
+[ext_resource type="Texture2D" uid="uid://cc3tig0bpvfj2" path="res://assets/zombie/skeleton-move_0.png" id="2_7hwy1"]
+[ext_resource type="Texture2D" uid="uid://bmoxrxld3t56x" path="res://assets/zombie/skeleton-move_1.png" id="3_kcnd6"]
+[ext_resource type="Texture2D" uid="uid://g3kn4v1nmrx8" path="res://assets/zombie/skeleton-move_2.png" id="4_y74y5"]
+[ext_resource type="Texture2D" uid="uid://drh56aq2e8n82" path="res://assets/zombie/skeleton-move_3.png" id="5_lvltx"]
+[ext_resource type="Texture2D" uid="uid://dlc6maaqlfd5x" path="res://assets/zombie/skeleton-move_4.png" id="6_8djfe"]
+[ext_resource type="Texture2D" uid="uid://rexvsnl2yrtn" path="res://assets/zombie/skeleton-move_5.png" id="7_ajdfu"]
+[ext_resource type="Texture2D" uid="uid://6s8gw6qhg7so" path="res://assets/zombie/skeleton-move_6.png" id="8_tbbsw"]
+[ext_resource type="Texture2D" uid="uid://b41fpl1s1c30o" path="res://assets/zombie/skeleton-move_7.png" id="9_gg0t3"]
+[ext_resource type="Texture2D" uid="uid://docdldbbyehw6" path="res://assets/zombie/skeleton-move_8.png" id="10_odjme"]
+[ext_resource type="Texture2D" uid="uid://bub62712wee04" path="res://assets/zombie/skeleton-move_9.png" id="11_1uj01"]
+[ext_resource type="Texture2D" uid="uid://bs4mejegl8fow" path="res://assets/zombie/skeleton-move_10.png" id="12_oga0b"]
+[ext_resource type="Texture2D" uid="uid://cs5f1ouj15fe8" path="res://assets/zombie/skeleton-move_11.png" id="13_ea0w8"]
+[ext_resource type="Texture2D" uid="uid://6xh14b3a5mc3" path="res://assets/zombie/skeleton-move_12.png" id="14_qwo2u"]
+[ext_resource type="Texture2D" uid="uid://cvcc7ddn8wq44" path="res://assets/zombie/skeleton-move_13.png" id="15_tq0rs"]
+[ext_resource type="Texture2D" uid="uid://cvume7wgtoudh" path="res://assets/zombie/skeleton-move_14.png" id="16_hrdba"]
+[ext_resource type="Texture2D" uid="uid://cjfprvsqt2jgo" path="res://assets/zombie/skeleton-move_15.png" id="17_og4a7"]
+[ext_resource type="Texture2D" uid="uid://dwc2m5cjbowkn" path="res://assets/zombie/skeleton-move_16.png" id="18_lxs62"]
+[ext_resource type="AudioStream" uid="uid://c4xmklgfxb2qr" path="res://assets/sounds/Zombie Sound.wav" id="19_41gvl"]
+[ext_resource type="AudioStream" uid="uid://cugxrtr641y1n" path="res://assets/sounds/Zombie Sounds/Roar1.wav" id="20_mqlm6"]
+[ext_resource type="AudioStream" uid="uid://d0ul0xde1iex0" path="res://assets/sounds/Zombie Sounds/Roar2.wav" id="21_0og82"]
+[ext_resource type="AudioStream" uid="uid://ckk8i7q0vl5gf" path="res://assets/sounds/Zombie Sounds/Death2.wav" id="22_0ldr3"]
+[ext_resource type="AudioStream" uid="uid://cg5vlj00qv1vg" path="res://assets/sounds/items/jump.wav" id="23_bu6fk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i68su"]
+size = Vector2(128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5ne4h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_7hwy1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_kcnd6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_y74y5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_lvltx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_8djfe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ajdfu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_tbbsw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_gg0t3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_odjme")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_1uj01")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_oga0b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_ea0w8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_qwo2u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_tq0rs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_hrdba")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_og4a7")
+}, {
+"duration": 0.01,
+"texture": ExtResource("18_lxs62")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
+[node name="Enemy" type="CharacterBody2D" groups=["enemy"]]
+script = ExtResource("1_os5ih")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_i68su")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.7, 0.7)
+sprite_frames = SubResource("SpriteFrames_5ne4h")
+frame = 2
+frame_progress = 0.329321
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="AudioZombie1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("19_41gvl")
+
+[node name="AudioZombie2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("20_mqlm6")
+
+[node name="AudioZombie3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("21_0og82")
+
+[node name="AudioZombie4" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("22_0ldr3")
+
+[node name="AudioJump" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("23_bu6fk")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
